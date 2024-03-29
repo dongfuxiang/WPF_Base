@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "43mXES0jfv7ph6DWU9HpAznffPz3mnAqIREjD7ZYNAqIUmUNhHSUl4FX9f5h8iigaDyMynANG0+dc+n36pNc4Q==",
+  "success": true,
+  "projectFilePath": "E:\\Project\\Wpf入门大全\\03-05-Canvas面板\\03-05-Canvas面板.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\14269\\.nuget\\packages\\communitytoolkit.mvvm\\8.2.1\\communitytoolkit.mvvm.8.2.1.nupkg.sha512"
+  ],
+  "logs": []
+}

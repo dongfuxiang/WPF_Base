@@ -1,0 +1,27 @@
+﻿<Window
+    x:Class="_03_03_WrapPanel和DockPanel.Test"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:_03_03_WrapPanel和DockPanel"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Test"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <DockPanel>
+        <StackPanel
+            Margin="10"
+            HorizontalAlignment="Right"
+            Background="Red"
+            DockPanel.Dock="Bottom"
+            Orientation="Horizontal">
+            <Button Width="100" Margin="10">OK</Button>
+            <Button Width="100" Margin="10">Cancel</Button>
+        </StackPanel>
+        <TextBlock
+            Background="Blue"
+            FontSize="50"
+            Text="this is message" />
+    </DockPanel>
+</Window>

@@ -1,0 +1,42 @@
+﻿<Window
+    x:Class="_03_05_Canvas面板.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:_03_05_Canvas面板"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <!--
+        -
+        Canvas:画板，可以在任意地方放任意元素
+        ··在Canvas中，支持坐标定义元素位置，左上角为原点
+        ··Z轴默认为0，谁先放谁在下面，可以自定义Panel.ZIndex,谁大谁在上面
+    -->
+    <Grid>
+        <Canvas Background="LightBlue">
+            <Button
+                Canvas.Left="10"
+                Canvas.Top="100"
+                Width="100"
+                Height="40"
+                Panel.ZIndex="1"
+                Content="Button A(10,50)" />
+            <Button
+                Canvas.Left="100"
+                Canvas.Top="120"
+                Width="100"
+                Height="40"
+                Content="Button B(100,120)" />
+            <Button
+                Canvas.Left="160"
+                Canvas.Top="180"
+                Width="100"
+                Height="40"
+                Content="Button C(160,180)" />
+
+        </Canvas>
+    </Grid>
+</Window>

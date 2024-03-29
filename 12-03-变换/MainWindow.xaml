@@ -1,0 +1,99 @@
+﻿<Window
+    x:Class="_12_03_变换.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:_12_03_变换"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="650"
+    mc:Ignorable="d">
+    <Grid>
+        <StackPanel Margin="10">
+            <Rectangle
+                Width="100"
+                Height="50"
+                Margin="5"
+                Stroke="blue">
+                <Rectangle.RenderTransform>
+                    <!--
+                        TranslateTransform：平移
+                    -->
+                    <TranslateTransform X="150" Y="10" />
+                </Rectangle.RenderTransform>
+            </Rectangle>
+
+            <Rectangle
+                Width="100"
+                Height="50"
+                Margin="5"
+                RenderTransformOrigin="0.5,0.5"
+                Stroke="blue">
+                <!--  RenderTransformOrigin="0.5,0.5"：按比例设置元素的初始旋转中心  -->
+
+                <Rectangle.RenderTransform>
+                    <!--
+                        RotateTransform：旋转
+                        CenterX：旋转中心（默认在左上角（0，0））
+                        Angle：旋转角度
+                    -->
+                    <RotateTransform Angle="45" CenterX="0" CenterY="0" />
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle
+                Width="100"
+                Height="50"
+                Margin="10"
+                Stroke="blue"
+                >
+                <!--  ScaleTransform：缩放,负数则实现镜像  -->
+                <Rectangle.RenderTransform>
+                    <ScaleTransform CenterX="0" CenterY="0" ScaleX="-2" ScaleY="1.5" />
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle
+                Width="100"
+                Height="50"
+                Margin="20"
+                RenderTransformOrigin="0.5,0.5"
+                Stroke="blue">
+                <!--  SkewTransform：扭曲  -->
+                <Rectangle.RenderTransform>
+                    <SkewTransform AngleX="20" AngleY="20" CenterX="0" CenterY="0" />
+                </Rectangle.RenderTransform>
+            </Rectangle>
+
+            <Button
+                Width="200"
+                Height="40"
+                Margin="20"
+                Content="BUtton A"
+                RenderTransformOrigin="0.5,0.5">
+                <Button.RenderTransform>
+                    <RotateTransform Angle="45" CenterX="0" CenterY="0" />
+                </Button.RenderTransform>
+            </Button>
+
+
+            <Button
+                x:Name="btnA"
+                Width="200"
+                Height="40"
+                Margin="0,50,0,0"
+                Content="BUtton A" />
+            
+            <Rectangle
+                Width="200"
+                Height="20"
+                Margin="10">
+                <Rectangle.Fill>
+                    <VisualBrush Visual="{Binding ElementName=btnA}" />
+                </Rectangle.Fill>
+                <Rectangle.RenderTransform>
+                    <SkewTransform AngleX="45" CenterX="300" CenterY="0" />
+                </Rectangle.RenderTransform>
+            </Rectangle>
+        </StackPanel>
+    </Grid>
+</Window>

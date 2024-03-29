@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "18-05-创建自定义面板/1.0.0": {
+        "dependencies": {
+          "18-05-CustomControlLib": "1.0.0"
+        },
+        "runtime": {
+          "18-05-创建自定义面板.dll": {}
+        }
+      },
+      "18-05-CustomControlLib/1.0.0": {
+        "runtime": {
+          "18-05-CustomControlLib.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "18-05-创建自定义面板/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "18-05-CustomControlLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

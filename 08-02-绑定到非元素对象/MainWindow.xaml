@@ -1,0 +1,55 @@
+﻿<Window
+    x:Class="_08_02_绑定到非元素对象.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:_08_02_绑定到非元素对象"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <!--
+        绑定到非元素对象，就不能使用ElementName了，
+        因为ElementName是从Xaml中去找，使用Source
+    -->
+
+    <Window.Resources>
+        <!--  给自定义字体命名Calibri  -->
+        <FontFamily x:Key="CustomFont">Calibri</FontFamily>
+    </Window.Resources>
+    <Grid DataContext="{Binding Source={x:Static SystemFonts.IconFontFamily}}">
+        <!--
+            如果大量元素绑定到同一个对象，可以设置其父元素的DataContext属性为绑定的对象，
+            则这些元素可以简写绑定表达式
+            ··DataContext可以写在父元素、父父元素、父父父元素…………
+            ··DataContext只能向下共享，向子元素共享
+        -->
+        <StackPanel Margin="10">
+            <!--
+                Source接收任意对象
+                Source={x:Static }：Source接收一个静态对象
+                SystemFonts来自xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                Path=Source:静态源（SystemFonts.IconFontFamily）中的Source属性被绑定到了Text
+            -->
+            <TextBlock Margin="10" Text="{Binding Source={x:Static SystemFonts.IconFontFamily}, Path=Source}" />
+            <!--
+                绑定当前APP或Window的对象
+                Source={StaticResource CustomFont}：绑定到静态资源
+            -->
+            <TextBlock Margin="10" Text="{Binding Source={StaticResource CustomFont}, Path=Source}" />
+
+            <!--
+                绑定到相对资源RelativeSource
+                (Mode=FindAncestor）：一直向上（父容器）找
+                AncestorType={x:Type Window}：找到window类型为止
+            -->
+            <TextBlock Margin="10" Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}, Path=Title}" />
+            <TextBlock Margin="10" Text="{Binding RelativeSource={RelativeSource Mode=Self}, Path=FontSize}" />
+            <!--  通过DataContext精简绑定表达式  -->
+            <TextBlock Margin="10" Foreground="Red" Text="{Binding Path=FamilyMaps}" />
+            <TextBlock Margin="10" Foreground="Red" Text="{Binding Path=FamilyTypefaces}" />
+            <TextBlock Margin="10" Foreground="Red" Text="{Binding Path=LineSpacing}" />
+        </StackPanel>
+    </Grid>
+</Window>

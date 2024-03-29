@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "22-01-ListView控件/1.0.0": {
+        "runtime": {
+          "22-01-ListView控件.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "22-01-ListView控件/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

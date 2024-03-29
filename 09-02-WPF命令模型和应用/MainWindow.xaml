@@ -1,0 +1,46 @@
+﻿<Window
+    x:Class="_09_02_WPF命令模型和应用.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:_09_02_WPF命令模型和应用"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:_09_02_WPF命令模型和应用.ViewModel"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <!--  使用资源的方式调用定义的类ViewModel  -->
+    <Window.Resources>
+        <vm:UserViewModel x:Key="UserViewModel" />
+    </Window.Resources>
+
+    <Grid Margin="10">
+        <!--
+            简写：
+            DataContext="{Binding Source={StaticResource UserViewModel}}"
+        -->
+        <StackPanel x:Name="spForm" DataContext="{StaticResource UserViewModel}">
+            <DockPanel Margin="5">
+                <Label Width="80" Content="UserName：" />
+                <!--  因为DataContext绑定的是UserViewModel，所以只能调用UserViewModel中的User  -->
+                <TextBox Text="{Binding Path=User.Username, Mode=OneWay}" />
+            </DockPanel>
+            <DockPanel Margin="5">
+                <Label Width="80" Content="PassWord：" />
+                <TextBox Text="{Binding Path=User.Password}" />
+            </DockPanel>
+            <!--
+                简写：
+                Command="{Binding Source={StaticResource UserViewModel}, Path=Logoin}"
+                ·· CommandParameter="{Binding User}"：给Execute传递参数，此处传递User对象
+            -->
+            <Button
+                Height="30"
+                Margin="10"
+                Command="{Binding Login}"
+                CommandParameter="{Binding User}"
+                Content="Login" />
+        </StackPanel>
+    </Grid>
+</Window>

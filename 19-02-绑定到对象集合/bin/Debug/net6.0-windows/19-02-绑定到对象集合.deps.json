@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "19-02-绑定到对象集合/1.0.0": {
+        "runtime": {
+          "19-02-绑定到对象集合.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "19-02-绑定到对象集合/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,117 @@
+﻿<Window x:Class="_18_04_支持可视化状态_01.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:_18_04_支持可视化状态_01"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="MainWindow"
+        Width="800"
+        Height="450"
+        mc:Ignorable="d">
+    <!--  TemplateBinding:把ControlTemplate里面的某个Property绑定到应用该ControlTemlate的控件的对应Property上  -->
+    <Window.Resources>
+        <local:TbRadusConvertor x:Key="Convertor" />
+        <Style TargetType="ToggleButton">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Grid x:Name="Grid">
+                            <Grid.Effect>
+                                <DropShadowEffect Opacity="0.6" ShadowDepth="1" />
+                            </Grid.Effect>
+
+                            <Border Name="Border"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="{TemplateBinding Height,
+                                                                   Converter={StaticResource Convertor}}">
+
+                                <Border.Background>
+                                    <SolidColorBrush x:Name="Brush" Color="#B6B6B6" />
+                                </Border.Background>
+                                <!--<Ellipse
+                                    Width="{TemplateBinding Height}"
+                                    Height="{TemplateBinding Height}"
+                                    Fill="#F3F3F3"
+                                    Stroke="{TemplateBinding BorderBrush}" />-->
+
+
+                                <!--  Path与几何形状（Ellipse）没有实质区别，Geometry提供形状，path来画且功能更强大  -->
+                                <!--  镜像中心位于Grid中间"0.5,0.5"  -->
+                                <Grid Name="GridPath"
+                                      Background="Transparent"
+                                      RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RenderTransform>
+                                        <ScaleTransform ScaleX="1" />
+                                    </Grid.RenderTransform>
+                                    <Path x:Name="Circle"
+                                          Margin="1"
+                                          HorizontalAlignment="Left"
+                                          Fill="#F1F1F1F1"
+                                          Stretch="Uniform"
+                                          Stroke="AliceBlue">
+                                        <Path.Data>
+                                            <EllipseGeometry RadiusX="1" RadiusY="1" />
+                                        </Path.Data>
+                                        <Path.Effect>
+                                            <DropShadowEffect Opacity="0.9" ShadowDepth="1" />
+                                        </Path.Effect>
+
+                                    </Path>
+                                </Grid>
+
+                            </Border>
+                        </Grid>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <!--<Setter TargetName="Circle" Property="HorizontalAlignment" Value="Right" />-->
+                                <Setter TargetName="Border" Property="Background" Value="#5ABF62" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Grid" Property="Effect">
+                                    <Setter.Value>
+                                        <DropShadowEffect Opacity="0.8" ShadowDepth="1" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <EventTrigger RoutedEvent="Checked">
+                                <BeginStoryboard>
+                                    <!--  镜像翻转Border的方式实现按钮左右平移  -->
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="GridPath"
+                                                         Storyboard.TargetProperty="RenderTransform.ScaleX"
+                                                         To="-1"
+                                                         Duration="0:0:0.2" />
+                                        <ColorAnimation Storyboard.TargetName="Brush"
+                                                        Storyboard.TargetProperty="Color"
+                                                        To="#5ABF62"
+                                                        Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="Unchecked">
+                                <BeginStoryboard>
+                                    <!--  镜像翻转Border的方式实现按钮左右平移  -->
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="GridPath"
+                                                         Storyboard.TargetProperty="RenderTransform.ScaleX"
+                                                         Duration="0:0:0.2" />
+                                        <ColorAnimation Storyboard.TargetName="Brush"
+                                                        Storyboard.TargetProperty="Color"
+                                                        Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
+    <Grid>
+        <ToggleButton Width="70" Height="32" />
+    </Grid>
+</Window>

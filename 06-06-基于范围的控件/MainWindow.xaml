@@ -1,0 +1,68 @@
+﻿<Window
+    x:Class="_06_06_基于范围的控件.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:_06_06_基于范围的控件"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <!--
+        ScrollBar,ProgressBar,Slider
+    -->
+    <Grid>
+        <StackPanel Margin="10" Orientation="Vertical">
+            <!--
+                Slider
+                TickPlacement：显示刻度
+                TickFrequency: 刻度间距
+                IsSnapToTickEnabled：根据刻度滑动
+                Ticks：指定刻度位置
+                IsSelectionRangeEnabled：有效范围值，SelectionStart，SelectionEnd
+            -->
+            <Slider
+                Margin="10"
+                Maximum="100"
+                Minimum="0"
+                TickFrequency="5"
+                TickPlacement="Both" />
+            <Slider
+                Margin="10"
+                IsSnapToTickEnabled="True"
+                Maximum="100"
+                Minimum="0"
+                TickPlacement="BottomRight" />
+            <Slider
+                Margin="10"
+                Maximum="100"
+                Minimum="0"
+                TickPlacement="TopLeft" />
+            <Slider
+                Margin="10"
+                IsSelectionRangeEnabled="True"
+                IsSnapToTickEnabled="True"
+                Maximum="100"
+                Minimum="0"
+                SelectionEnd="70"
+                SelectionStart="20"
+                TickPlacement="BottomRight"
+                Ticks="1,2,3,4,5,10,20,50,75" />
+            <!--  IsIndeterminate：进度条等待  -->
+            <ProgressBar
+                x:Name="progressbar"
+                Height="10"
+                Margin="10"
+                IsIndeterminate="True"
+                Maximum="100"
+                Minimum="0"
+                Value="50" />
+            <Button
+                Width="100"
+                Height="40"
+                Click="Button_Click"
+                Content="Start" />
+        </StackPanel>
+    </Grid>
+</Window>

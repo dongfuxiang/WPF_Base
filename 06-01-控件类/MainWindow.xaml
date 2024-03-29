@@ -1,0 +1,39 @@
+﻿<Window
+    x:Class="_06_01_控件类.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:_06_01_控件类"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <!--
+        1.WPF的颜色系统
+        1.1代码设置颜色
+        1.2使用XAML代码 不透明："#5D6B98" 透明："#335D6B98"，透明度由前面的一个字节33决定（两个16进制代表一个字节）
+        2.Font 文字大小、斜体、加粗、拉伸、字体（可以嵌入外部字体）
+        3.鼠标 光标形式（动态光标、静态光标）
+    -->
+    <Grid>
+        <StackPanel Margin="10" Background="LightPink" Orientation="Vertical">
+            <Button
+                x:Name="btnA"
+                Height="30"
+                Margin="20"
+                Background="#a15D6B98"
+                Content="Button A" />
+            <Button
+                x:Name="btnB"
+                Height="30"
+                Margin="20"
+                Background="#a15D6B98"
+                Content="Button A"
+                FontFamily="./#Reggae One"
+                FontSize="25"
+                FontStyle="Italic"
+                FontWeight="ExtraBlack" />
+        </StackPanel>
+    </Grid>
+</Window>

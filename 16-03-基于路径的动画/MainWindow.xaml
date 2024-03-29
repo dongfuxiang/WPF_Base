@@ -1,0 +1,86 @@
+﻿<Window
+    x:Class="_16_03_基于路径的动画.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:_16_03_基于路径的动画"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <PathGeometry x:Key="myPath">
+            <PathFigure StartPoint="10,10">
+                <LineSegment Point="350,10" />
+                <LineSegment Point="300,200" />
+                <ArcSegment Point="250,300" Size="50,40" />
+                <LineSegment Point="200,300" />
+            </PathFigure>
+        </PathGeometry>
+    </Window.Resources>
+
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Button.Click">
+            <BeginStoryboard>
+                <Storyboard>
+                    <!--  Canvas.Left随着PathGeometry中的X变化  -->
+                    <DoubleAnimationUsingPath
+                        PathGeometry="{StaticResource myPath}"
+                        Source="X"
+                        Storyboard.TargetName="img"
+                        Storyboard.TargetProperty="(Canvas.Left)"
+                        Duration="0:0:10" />
+                    <DoubleAnimationUsingPath
+                        PathGeometry="{StaticResource myPath}"
+                        Source="Y"
+                        Storyboard.TargetName="img"
+                        Storyboard.TargetProperty="(Canvas.Top)"
+                        Duration="0:0:10" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <Canvas>
+            <!--  画一个图片  -->
+            <Image
+                x:Name="img"
+                Canvas.Left="10"
+                Canvas.Top="10">
+                <Image.Source>
+                    <DrawingImage>
+                        <DrawingImage.Drawing>
+                            <GeometryDrawing>
+                                <GeometryDrawing.Geometry>
+                                    <GeometryGroup>
+                                        <EllipseGeometry RadiusX="9" RadiusY="4" />
+                                        <EllipseGeometry RadiusX="4" RadiusY="9" />
+                                        <EllipseGeometry RadiusX="2" RadiusY="2" />
+                                    </GeometryGroup>
+                                </GeometryDrawing.Geometry>
+                                <GeometryDrawing.Pen>
+                                    <Pen Brush="Red" Thickness="1" />
+                                </GeometryDrawing.Pen>
+                            </GeometryDrawing>
+                        </DrawingImage.Drawing>
+                    </DrawingImage>
+                </Image.Source>
+                <Image.RenderTransform>
+                    <TranslateTransform X="-10" Y="-10" />
+                </Image.RenderTransform>
+            </Image>
+            <!--  画一条路径  -->
+            <Path Data="{Binding Source={StaticResource myPath}}" Stroke="Black" />
+        </Canvas>
+        <Button
+            Grid.Row="1"
+            Width="100"
+            Height="30"
+            Content="Start" />
+    </Grid>
+</Window>

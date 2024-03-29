@@ -1,0 +1,37 @@
+﻿<Window x:Class="_18_04_支持可视化状态_02.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:_18_04_支持可视化状态_02"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:uc="clr-namespace:_18_04_CustomControlLib;assembly=18-04-CustomControlLib"
+        Title="MainWindow"
+        Width="400"
+        Height="450"
+        mc:Ignorable="d">
+    <Grid>
+        <uc:FlipPanel BorderBrush="Red"
+                      BorderThickness="2"
+                      CornerRadius="10"
+                      IsFlipped="False">
+            <uc:FlipPanel.FrontContent>
+                <Grid>
+                    <Button Width="100"
+                            Height="30"
+                            VerticalAlignment="Top"
+                            Content="Button A" />
+                </Grid>
+
+            </uc:FlipPanel.FrontContent>
+
+            <uc:FlipPanel.BackContent>
+                <Grid>
+                    <Button Width="100"
+                            Height="30"
+                            VerticalAlignment="Bottom"
+                            Content="Button B" />
+                </Grid>
+            </uc:FlipPanel.BackContent>
+        </uc:FlipPanel>
+    </Grid>
+</Window>

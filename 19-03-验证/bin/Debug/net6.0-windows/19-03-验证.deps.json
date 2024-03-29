@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "19-03-验证/1.0.0": {
+        "runtime": {
+          "19-03-验证.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "19-03-验证/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,21 @@
+﻿<Window
+    x:Class="_18_03_创建无外观的控件_01.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:_18_03_创建无外观的控件_01"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:uc="clr-namespace:_18_03_CustomControlLib;assembly=18-03-CustomControlLib"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+
+    <Grid>
+
+        <StackPanel Orientation="Vertical">
+            <uc:ColorPicker Height="200" />
+            <uc:ColorPicker Height="200" />
+        </StackPanel>
+    </Grid>
+</Window>

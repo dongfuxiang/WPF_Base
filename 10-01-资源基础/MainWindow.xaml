@@ -1,0 +1,34 @@
+﻿<Window
+    x:Class="_10_01_资源基础.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:_10_01_资源基础"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <!--
+        WPF中资源的存储方式是以资源字典（键值对）的方式存储
+        ·· WPF所有控件都有资源字典属性
+        ··资源可以放在任何地方，一般放在Window里面
+        ··资源可存储任何对象
+        ··子元素可以访问父元素资源，父元素不可以访问子元素资源
+    -->
+    <Window.Resources>
+        <SolidColorBrush x:Key="MyBrush1" Color="Red" />
+        <SolidColorBrush x:Key="MyBrush2" Color="Blue" />
+    </Window.Resources>
+    <Grid>
+        <StackPanel Margin="10">
+            <Button Margin="10" Background="{Binding Source={StaticResource MyBrush1}}" Content="Button A" />
+            <Button Margin="10" Content="Button B" Foreground="{StaticResource MyBrush1}" />
+            <Button
+                Margin="10"
+                Background="{DynamicResource MyBrush2}"
+                Click="Button_Click"
+                Content="Button C" />
+        </StackPanel>
+    </Grid>
+</Window>

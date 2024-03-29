@@ -1,0 +1,49 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "18-02-构建基本的用户控件-02/1.0.0": {
+        "dependencies": {
+          "18-02-构建基本的用户控件-01": "1.0.0"
+        },
+        "runtime": {
+          "18-02-构建基本的用户控件-02.dll": {}
+        }
+      },
+      "18-01-CustomSontrolLib/1.0.0": {
+        "runtime": {
+          "18-01-CustomSontrolLib.dll": {}
+        }
+      },
+      "18-02-构建基本的用户控件-01/1.0.0": {
+        "dependencies": {
+          "18-01-CustomSontrolLib": "1.0.0"
+        },
+        "runtime": {
+          "18-02-构建基本的用户控件-01.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "18-02-构建基本的用户控件-02/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "18-01-CustomSontrolLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "18-02-构建基本的用户控件-01/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

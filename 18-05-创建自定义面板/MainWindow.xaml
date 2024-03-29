@@ -1,0 +1,15 @@
+﻿<Window x:Class="_18_05_创建自定义面板.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_18_05_创建自定义面板"
+        xmlns:cc="clr-namespace:_18_05_CustomControlLib;assembly=18-05-CustomControlLib"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <cc:MyCanvas>
+            <Button Width="100" Height="100" cc:MyCanvas.Left="100" cc:MyCanvas.Top="200" />
+        </cc:MyCanvas>
+    </Grid>
+</Window>

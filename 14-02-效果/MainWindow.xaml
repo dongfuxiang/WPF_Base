@@ -1,0 +1,58 @@
+﻿<Window
+    x:Class="_14_02_效果.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:_14_02_效果"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <!--
+        BlurEffect：模糊化
+        DropShadowEffect：阴影 Direction：阴影方向 BlurRadius:影子模糊化 Opacity：影子透明度
+    -->
+
+    <Window.Effect>
+        <DropShadowEffect
+            BlurRadius="10"
+            Direction="270"
+            Opacity="0.5"
+            ShadowDepth="5"
+            Color="Red" />
+    </Window.Effect>
+    <Grid>
+        <Border
+            Margin="5"
+            BorderBrush="LightGray"
+            BorderThickness="3"
+            CornerRadius="5">
+            <StackPanel>
+                <Button
+                    Height="40"
+                    Margin="10"
+                    Content="Button A">
+                    <Button.Effect>
+                        <BlurEffect Radius="4" />
+                    </Button.Effect>
+                </Button>
+                <Button
+                    Height="40"
+                    Margin="10"
+                    Content="Button B">
+                    <Button.Effect>
+                        <DropShadowEffect
+                            BlurRadius="10"
+                            Direction="270"
+                            Opacity="0.5"
+                            ShadowDepth="5"
+                            Color="Red" />
+                    </Button.Effect>
+                </Button>
+            </StackPanel>
+
+        </Border>
+
+    </Grid>
+</Window>

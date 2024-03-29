@@ -1,0 +1,18 @@
+﻿<Application
+    x:Class="_10_02_资源字典.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:_10_02_资源字典"
+    StartupUri="MainWindow.xaml">
+    <!--  引用资源字典文件  -->
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ColorsDic.xaml" />
+                <ResourceDictionary Source="ThemesDic.xaml" />
+                <!--  读取外部资源  -->
+                <!--<ResourceDictionary Source="pack://application:,,,/10-02-TestLib;component/MyDic.xaml" />-->
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

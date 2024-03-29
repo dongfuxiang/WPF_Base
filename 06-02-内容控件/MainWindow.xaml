@@ -1,0 +1,64 @@
+﻿<Window
+    x:Class="_06_02_内容控件.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:_06_02_内容控件"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <!--
+        内容控件:
+        Label、ButtonBase、ToolTip、
+        ScrollViewer、UserControl、Window、
+        带标题的：GroupBox、TabItem、Expander
+        
+        ··拥有Contennt属性,Content只能放唯一元素，为Object属性，可接受UIElement控件或非UIElement类型
+        ··拥有HorizontalContentAlignment、VerticalContentAlignment，内容元素的对其方式
+    -->
+    <Grid>
+        <StackPanel Margin="10" Orientation="Vertical">
+            <Button Height="80" HorizontalContentAlignment="Left">
+                <StackPanel>
+                    <Label>123</Label>
+                    <Image Height="50" Source="1.jpg" />
+                </StackPanel>
+            </Button>
+            <Label HorizontalAlignment="Center" VerticalContentAlignment="Center">This is Label</Label>
+            <DockPanel>
+                <!--
+                    Target：标签服务于哪个对象
+                    UserName： _A：空格_A方式，再按A时，TextBox获得焦点
+                -->
+                <Label DockPanel.Dock="Left" Target="{Binding ElementName=tbUserName}">
+                    UserName： _A
+                </Label>
+                <TextBox x:Name="tbUserName" />
+            </DockPanel>
+            <StackPanel>
+                <CheckBox Content="CheckBox A" />
+                <CheckBox Content="CheckBox B" />
+                <CheckBox Content="CheckBox C" />
+            </StackPanel>
+            <!--  RadioButton在同一父类中会互相排斥  -->
+            <StackPanel Orientation="Horizontal">
+                <RadioButton Content="RadioButton A" />
+                <RadioButton Content="RadioButton B" />
+                <RadioButton Content="RadioButton C" />
+                <RadioButton Content="RadioButton D" />
+            </StackPanel>
+            <!--  IsDefault="True":除非焦点不在这个按钮上，否则按回车就会出发这个按钮  -->
+            <Button
+                Height="40"
+                Click="Button_Click"
+                IsCancel="True"
+                IsDefault="True">
+                <Button.ToolTip>
+                    <Image Height="40" Source="1.jpg" />
+                </Button.ToolTip>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>

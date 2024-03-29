@@ -1,0 +1,45 @@
+﻿<Window
+    x:Class="_06_07_日期控件.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:_06_07_日期控件"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="300"
+    Height="450"
+    mc:Ignorable="d">
+    <!--
+        ··DatePicker中，DisplayDate与SelectedDate谁后设置谁为准
+        ··Calendar中只能设置DisplayDate显示设置的时间
+        ··IsTodayHighlighted：当前选中时间是否高亮
+        ··SelectionMode：多选
+        ··SelectionMode：每周第一天
+        ··DatePicker中日期显示方式
+    -->
+    <Grid>
+        <StackPanel Margin="10" Orientation="Vertical">
+            <Calendar
+                x:Name="myCal"
+                Margin="10"
+                DisplayDate="2000-01-01"
+                DisplayDateEnd="2009-01-01"
+                DisplayDateStart="2008-01-01"
+                DisplayMode="Month"
+                FirstDayOfWeek="Tuesday"
+                IsTodayHighlighted="True"
+                SelectionMode="MultipleRange" />
+            <DatePicker
+                x:Name="myDate"
+                Margin="10"
+                DisplayDate="2000-01-01"
+                IsDropDownOpen="True"
+                SelectedDate="2000-01-01" />
+            <Button
+                Height="30"
+                Margin="10"
+                Click="Button_Click"
+                Content="Date Opetion" />
+        </StackPanel>
+    </Grid>
+</Window>

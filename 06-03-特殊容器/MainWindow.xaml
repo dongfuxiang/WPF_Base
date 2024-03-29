@@ -1,0 +1,125 @@
+﻿<Window
+    x:Class="_06_03_特殊容器.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:_06_03_特殊容器"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <!--
+        ScrollViewer
+        ··VerticalScrollBarVisibility：滚动条显示与否
+        ··CanContentScroll：为true时，滚动时，翻页滚动
+        GroupBox
+        TabControl
+        EXpsnder：展开器
+    -->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="60" />
+        </Grid.RowDefinitions>
+        <TabControl>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel>
+                        <Label Content="First Header" />
+                        <Image Height="30" Source="1.jpg" />
+                    </StackPanel>
+                </TabItem.Header>
+                <ScrollViewer x:Name="scorllViewer" VerticalScrollBarVisibility="Auto">
+                    <StackPanel Margin="10">
+                        <GroupBox Margin="10" BorderBrush="red" Header="This is A GroupBox">
+                            <StackPanel>
+                                <Button Height="30">This is A Button</Button>
+                                <Image Height="100" Margin="10" Source="1.jpg" />
+                            </StackPanel>
+                        </GroupBox>
+                        <Button Height="40" Margin="10">Button 1</Button>
+                        <Button Height="40" Margin="10">Button 2</Button>
+                        <Button Height="40" Margin="10">Button 3</Button>
+                        <Button Height="40" Margin="10">Button 4</Button>
+                        <Button Height="40" Margin="10">Button 5</Button>
+                        <Button Height="40" Margin="10">Button 6</Button>
+                        <Button Height="40" Margin="10">Button 7</Button>
+                        <Button Height="40" Margin="10">Button 8</Button>
+                        <Button Height="40" Margin="10">Button 9</Button>
+                        <Button Height="40" Margin="10">Button 10</Button>
+
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Header="Second Header">
+                <StackPanel>
+                    <Expander Header="First">
+                        <StackPanel>
+                            <Button Height="40" Margin="5" />
+                            <Button Height="40" Margin="5" />
+                            <Button Height="40" Margin="5" />
+                        </StackPanel>
+                    </Expander>
+                    <Expander Header="Second" ExpandDirection="Right">
+                        <StackPanel>
+                            <Button Height="40"
+                                    Margin="5" />
+                            <Button Height="40"
+                                    Margin="5" />
+                            <Button Height="40"
+                                    Margin="5" />
+                        </StackPanel>
+                    </Expander>
+                </StackPanel>
+
+            </TabItem>
+        </TabControl>
+        <StackPanel Grid.Row="1" Margin="10" Orientation="Horizontal">
+            <Button
+                x:Name="btnLineUp"
+                Width="60"
+                Height="35"
+                Margin="5,0,0,0"
+                Click="Button_Click"
+                Content="LineUP" />
+            <Button
+                x:Name="BtnLineDown"
+                Width="60"
+                Height="35"
+                Margin="5,0,0,0"
+                Click="Button_Click"
+                Content="LineDown" />
+            <Button
+                x:Name="btnPageUp"
+                Width="60"
+                Height="35"
+                Margin="5,0,0,0"
+                Click="Button_Click"
+                Content="PageUp" />
+            <Button
+                x:Name="btnPageDown"
+                Width="60"
+                Height="35"
+                Margin="5,0,0,0"
+                Click="Button_Click"
+                Content="PageDown" />
+            <Button
+                x:Name="btnScrollToHome"
+                Width="60"
+                Height="35"
+                Margin="5,0,0,0"
+                Click="Button_Click"
+                Content="ScrollToHome" />
+            <Button
+                x:Name="btnScrollToEnd"
+                Width="60"
+                Height="35"
+                Margin="5,0,0,0"
+                Click="Button_Click"
+                Content="ScrollToEnd" />
+        </StackPanel>
+
+
+    </Grid>
+</Window>

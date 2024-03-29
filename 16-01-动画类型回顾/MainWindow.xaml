@@ -1,0 +1,94 @@
+﻿<Window
+    x:Class="_16_01_动画类型回顾.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:_16_01_动画类型回顾"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <!--
+        ··动态变换
+        ··动态改变画刷
+    -->
+    <Window.Resources />
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Button.MouseEnter" SourceName="btn">
+            <BeginStoryboard>
+                <Storyboard>
+                    <!--  语法规定  RenderTransform.Angle  -->
+                    <DoubleAnimation
+                        By="90"
+                        Storyboard.TargetName="btn"
+                        Storyboard.TargetProperty="RenderTransform.Angle"
+                        Duration="0:0:0.5" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="Button.MouseLeave" SourceName="btn">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation
+                        Storyboard.TargetName="btn"
+                        Storyboard.TargetProperty="RenderTransform.Angle"
+                        Duration="0:0:0.5" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Button
+            x:Name="btn"
+            Grid.Row="0"
+            Grid.Column="0"
+            Width="100"
+            Height="30"
+            Content="Button"
+            RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <RotateTransform />
+            </Button.RenderTransform>
+        </Button>
+        <Ellipse
+            Grid.Row="0"
+            Grid.Column="1"
+            Width="200"
+            Height="200">
+            <Ellipse.Fill>
+                <RadialGradientBrush GradientOrigin="0.2,0.2">
+                    <GradientStop Offset="0" Color=" LightYellow" />
+                    <GradientStop Offset="1" Color="Red" />
+                </RadialGradientBrush>
+            </Ellipse.Fill>
+
+            <Ellipse.Triggers>
+                <EventTrigger RoutedEvent="MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <PointAnimation Storyboard.TargetProperty="Fill.GradientOrigin" To="0.8,0.8" />
+                            <ColorAnimation Storyboard.TargetProperty="Fill.GradientStops[1].Color" To="LightPink" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <PointAnimation Storyboard.TargetProperty="Fill.GradientOrigin" />
+                            <ColorAnimation Storyboard.TargetProperty="Fill.GradientStops[1].Color" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Ellipse.Triggers>
+        </Ellipse>
+    </Grid>
+</Window>

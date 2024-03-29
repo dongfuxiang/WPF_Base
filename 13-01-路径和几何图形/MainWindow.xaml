@@ -1,0 +1,118 @@
+﻿<Window
+    x:Class="_13_01_路径和几何图形.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:_13_01_路径和几何图形"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Grid>
+        <Path Stroke="Red">
+            <Path.Data>
+                <LineGeometry StartPoint="10,100" EndPoint="10,200" />
+            </Path.Data>
+        </Path>
+
+        <Path Stroke="Red">
+            <Path.Data>
+                <RectangleGeometry Rect="20,100 60,100" />
+            </Path.Data>
+        </Path>
+
+        <Path Stroke="Red">
+            <Path.Data>
+                <EllipseGeometry
+                    Center="150,100"
+                    RadiusX="50"
+                    RadiusY="50" />
+            </Path.Data>
+        </Path>
+        <!--
+            GeometryGroup：组合形状
+            默认相交的地方会被裁剪
+        -->
+        <Path Fill="LightBlue" Stroke="Red">
+            <Path.Data>
+                <GeometryGroup>
+                    <EllipseGeometry
+                        Center="300,100"
+                        RadiusX="50"
+                        RadiusY="50" />
+                    <EllipseGeometry
+                        Center="300,150"
+                        RadiusX="50"
+                        RadiusY="50" />
+                </GeometryGroup>
+            </Path.Data>
+        </Path>
+        <!--
+            CombinedGeometry：融合几何图形，只能融合两个对象
+            GeometryCombineMode：融合方式，交、并等
+        -->
+        <Path Fill="LightBlue" Stroke="Red">
+            <Path.Data>
+                <CombinedGeometry GeometryCombineMode="Union">
+                    <CombinedGeometry.Geometry1>
+                        <EllipseGeometry
+                            Center="400,100"
+                            RadiusX="50"
+                            RadiusY="50" />
+                    </CombinedGeometry.Geometry1>
+                    <CombinedGeometry.Geometry2>
+                        <EllipseGeometry
+                            Center="400,150"
+                            RadiusX="50"
+                            RadiusY="50" />
+
+                    </CombinedGeometry.Geometry2>
+                </CombinedGeometry>
+            </Path.Data>
+        </Path>
+
+        <!--
+            PathGeometry：绘制曲线和直线
+        -->
+        <Path Fill="LightBlue" Stroke="Red">
+            <Path.Data>
+                <PathGeometry>
+
+                    <PathGeometry.Figures>
+
+                        <PathFigure
+                            IsClosed="True"
+                            IsFilled="false"
+                            StartPoint="500,100">
+                            <LineSegment Point="500,200" />
+                            <LineSegment Point="600,200" />
+                            <ArcSegment Point="600,300" Size="30,30" />
+                            <BezierSegment
+                                Point1="600,100"
+                                Point2="500 300"
+                                Point3="400 100" />
+                        </PathFigure>
+
+                    </PathGeometry.Figures>
+
+                </PathGeometry>
+            </Path.Data>
+        </Path>
+
+        <!--
+            微语言：PathGeometry的简写
+        -->
+        <Path Fill="AliceBlue" Stroke="Red">
+            <Path.Data>
+                <PathGeometry Figures="M 100,200 L 200,300 L 200,400 A 30,30 1 1,1 300,300 C 400,200 450,250 500,210 Z" />
+            </Path.Data>
+        </Path>
+
+        <!--  进一步简写  -->
+        <Path
+            Data="M 100,200 L 200,300 L 200,400 A 30,30 1 1,1 300,300 C 400,200 450,250 500,210 Z"
+            Fill="AliceBlue"
+            Stroke="Red" />
+    </Grid>
+</Window>

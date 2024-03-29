@@ -1,0 +1,100 @@
+﻿<Window
+    x:Class="_14_01_可视化对象.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:_14_01_可视化对象"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="550"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <DrawingBrush x:Key="DBSelect">
+            <DrawingBrush.Drawing>
+                <DrawingGroup>
+                    <GeometryDrawing Brush="#1296db" Geometry="M482.647032 943.044978H175.182365c-55.56694 0-100.659891-43.595953-100.659891-97.266895V172.587813c0-53.671942 45.092951-97.267895 100.659891-97.267895v0.1h660.719284c55.46794 0 100.559891 43.694953 100.559891 97.266895v391.963575h74.521919V172.686813c0-94.772897-78.611915-171.888814-175.17981-171.888814H175.181365C78.61247 0.897999 0.000555 77.913916 0.000555 172.687813v673.18927c0 94.673897 78.512915 171.789814 175.18181 171.789814h307.464667v-74.621919z m0 0" />
+                    <GeometryDrawing Geometry="M1008.489462 677.280266L473.270042 358.841611c-19.653979-11.671987-32.322965-2.892997-28.13297 19.553979l113.827877 616.027332c4.189995 22.445976 18.25598 25.537972 31.324966 6.882993 0 0 72.725921-104.249887 132.382857-167.898818l120.910869 180.069804c7.382992 10.973988 22.346976 13.866985 33.220964 6.284994l56.963938-39.405958c10.973988-7.581992 13.866985-22.745975 6.384993-33.819963l-120.711869-179.769805c76.516917-31.723966 184.5598-58.459937 184.5598-58.459937 22.045976-5.486994 24.041974-19.452979 4.487995-31.025966z">
+                        <GeometryDrawing.Brush>
+                            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                <GradientStop Offset="0" Color="Red" />
+                                <GradientStop Offset="0.8" Color="Yellow" />
+                                <GradientStop Offset="1" Color="Transparent" />
+                            </LinearGradientBrush>
+                        </GeometryDrawing.Brush>
+
+                    </GeometryDrawing>
+
+                </DrawingGroup>
+            </DrawingBrush.Drawing>
+        </DrawingBrush>
+        <DrawingBrush x:Key="DBSquare">
+            <DrawingBrush.Drawing>
+                <DrawingGroup>
+                    <GeometryDrawing Brush="#1296db" Geometry="M65.98144 66.09408v891.91936h892.032V66.09408H65.98144z m828.03712 828.65664H130.18112V131.04128h763.83744v763.70944z" />
+                </DrawingGroup>
+            </DrawingBrush.Drawing>
+        </DrawingBrush>
+        <DrawingBrush x:Key="DBDelete">
+            <DrawingBrush.Drawing>
+                <DrawingGroup>
+                    <GeometryDrawing Brush="#d81e06" Geometry="M912.526651 867.741144 555.540144 510.712681l356.986507-357.000833c11.171434-11.18576 11.171434-29.257348 0-40.443108-11.20111-11.18576-29.272697-11.18576-40.444131 0L515.096013 470.267527 158.096203 113.267716c-11.187807-11.159154-29.258371-11.159154-40.444131 0-11.186783 11.186783-11.186783 29.286 0 40.47176L474.623229 510.712681 117.623419 867.741144c-11.159154 11.172457-11.159154 29.216415 0 40.443108 11.18576 11.17348 29.284977 11.17348 40.47176 0l357.000833-357.027439 356.985484 357.027439c11.171434 11.17348 29.243021 11.17348 40.444131 0C923.698085 896.957559 923.725714 878.913601 912.526651 867.741144z" />
+                </DrawingGroup>
+            </DrawingBrush.Drawing>
+        </DrawingBrush>
+        <Style TargetType="{x:Type RadioButton}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RadioButton}">
+                        <StackPanel>
+                            <Border
+                                x:Name="border"
+                                Margin="10"
+                                Padding="10"
+                                BorderThickness="1"
+                                CornerRadius="5">
+                                <Border
+                                    Width="90"
+                                    Height="90"
+                                    Background="{TemplateBinding Background}" />
+                            </Border>
+                            <TextBlock
+                                x:Name="tbContent"
+                                HorizontalAlignment="Center"
+                                Text="{TemplateBinding Content}" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="Black" />
+                                <Setter TargetName="tbContent" Property="FontWeight" Value="Bold" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <RadioButton Background="{StaticResource DBSelect}" Content="Select/Move" />
+            <RadioButton Background="{StaticResource DBSquare}" Content="Add Square" />
+            <RadioButton Background="{StaticResource DBDelete}" Content="Delete Square" />
+        </StackPanel>
+
+        <Border
+            Grid.Column="1"
+            Margin="5"
+            BorderBrush="LightGray"
+            BorderThickness="1"
+            CornerRadius="5">
+            <Canvas />
+        </Border>
+
+    </Grid>
+</Window>

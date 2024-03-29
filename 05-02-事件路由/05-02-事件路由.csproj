@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <RootNamespace>_05_02_事件路由</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="蝴蝶.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="蝴蝶.jpg" />
+  </ItemGroup>
+
+</Project>

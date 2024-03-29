@@ -1,0 +1,61 @@
+﻿<Window x:Class="_13_02_图画.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:_13_02_图画"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="MainWindow"
+        Width="800"
+        Height="450"
+        mc:Ignorable="d">
+
+    <Window.Resources>
+        <DrawingImage x:Key="drawingImage">
+            <DrawingImage.Drawing>
+                <DrawingGroup>
+                    <GeometryDrawing Brush="#1296db" Geometry="M870.4 0H153.6A153.6 153.6 0 0 0 0 153.6v716.8A153.998222 153.998222 0 0 0 153.6 1024h716.8a153.998222 153.998222 0 0 0 153.6-153.6V153.6A153.6 153.6 0 0 0 870.4 0z m-96.312889 71.281778v360.675555H249.969778v-360.675555h524.117333z m178.631111 799.118222a82.090667 82.090667 0 0 1-82.318222 81.92H153.6a82.204444 82.204444 0 0 1-82.318222-81.92V153.6c0-45.454222 36.864-82.261333 82.318222-82.318222h24.974222v396.515555a35.441778 35.441778 0 0 0 35.612445 35.498667h595.456a35.498667 35.498667 0 0 0 35.726222-35.441778v-396.515555h25.031111c45.454222 0 82.261333 36.807111 82.318222 82.261333v716.8z m-303.104-514.958222a35.84 35.84 0 0 0 35.612445-35.84V172.600889a35.726222 35.726222 0 0 0-71.338667 0v147.000889a35.84 35.84 0 0 0 35.555556 35.84h0.170666zM256 658.318222h512a36.579556 36.579556 0 1 1 0 73.159111h-512a36.579556 36.579556 0 1 1                                                      0-73.159111z" />
+                </DrawingGroup>
+            </DrawingImage.Drawing>
+        </DrawingImage>
+    </Window.Resources>
+    <Grid>
+        <StackPanel Margin="5">
+            <Button Width="100" Height="50">
+                <Image>
+                    <Image.Source>
+                        <DrawingImage>
+                            <DrawingImage.Drawing>
+                                <GeometryDrawing>
+                                    <GeometryDrawing.Pen>
+                                        <Pen Brush="Blue" Thickness="3" />
+                                    </GeometryDrawing.Pen>
+                                    <GeometryDrawing.Geometry>
+                                        <RectangleGeometry Rect="10,10 90,90" />
+                                    </GeometryDrawing.Geometry>
+                                </GeometryDrawing>
+                            </DrawingImage.Drawing>
+                        </DrawingImage>
+                    </Image.Source>
+                </Image>
+            </Button>
+            <Button Width="100"
+                    Height="50"
+                    Margin="5">
+                <Image Source="{StaticResource drawingImage}" />
+            </Button>
+            <Button Width="100" Height="50">
+                <Button.Background>
+                    <DrawingBrush>
+                        <DrawingBrush.Drawing>
+                            <DrawingGroup>
+                                <GeometryDrawing Brush="#1296db" Geometry="M870.4 0H153.6A153.6 153.6 0 0 0 0 153.6v716.8A153.998222 153.998222 0 0 0 153.6 1024h716.8a153.998222 153.998222 0 0 0 153.6-153.6V153.6A153.6 153.6 0 0 0 870.4 0z m-96.312889 71.281778v360.675555H249.969778v-360.675555h524.117333z m178.631111 799.118222a82.090667 82.090667 0 0 1-82.318222 81.92H153.6a82.204444 82.204444 0 0 1-82.318222-81.92V153.6c0-45.454222 36.864-82.261333 82.318222-82.318222h24.974222v396.515555a35.441778 35.441778 0 0 0 35.612445 35.498667h595.456a35.498667 35.498667 0 0 0 35.726222-35.441778v-396.515555h25.031111c45.454222 0 82.261333 36.807111 82.318222 82.261333v716.8z m-303.104-514.958222a35.84 35.84 0 0 0 35.612445-35.84V172.600889a35.726222 35.726222 0 0 0-71.338667 0v147.000889a35.84 35.84 0 0 0 35.555556 35.84h0.170666zM256 658.318222h512a36.579556 36.579556 0 1 1 0 73.159111h-512a36.579556 36.579556 0 1 1                                                      0-73.159111z" />
+
+                            </DrawingGroup>
+                        </DrawingBrush.Drawing>
+                    </DrawingBrush>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+
+    </Grid>
+</Window>

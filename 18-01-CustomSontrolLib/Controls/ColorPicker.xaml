@@ -1,0 +1,63 @@
+﻿<UserControl
+    x:Class="_18_01_CustomSontrolLib.Controls.ColorPicker"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:_18_01_CustomSontrolLib.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="colorPicker"
+    d:DesignHeight="150"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <Style TargetType="Slider">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Maximum" Value="255" />
+            <Setter Property="Minimum" Value="0" />
+            <Setter Property="TickFrequency" Value="1" />
+            <!--<Setter Property="Template" Value="{StaticResource SliderTemp}" />-->
+
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="80" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <!--  //绑定方式1  -->
+            <Slider
+                Grid.Row="0"
+                Background="Red"
+                Opacity="0.5"
+                Value="{Binding Red, ElementName=colorPicker, Mode=TwoWay}" />
+            <!--  //相对路径绑定,一直向上找，直到找到类型UserControl  -->
+            <Slider
+                Grid.Row="1"
+                Background="Blue"
+                Opacity="0.5"
+                Value="{Binding Green, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Mode=TwoWay}" />
+            <Slider
+                Grid.Row="2"
+                Background="Green"
+                Opacity="0.5"
+                Value="{Binding Blue, ElementName=colorPicker, Mode=TwoWay}" />
+        </Grid>
+        <Grid Grid.Column="1">
+            <Border
+                Margin="5"
+                BorderThickness="1"
+                CornerRadius="5">
+                <Border.Background>
+                    <SolidColorBrush Color="{Binding Path=MyColor, ElementName=colorPicker}" />
+                </Border.Background>
+            </Border>
+
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,16 @@
+﻿<Application
+    x:Class="_17_03_组织模板资源.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:_17_03_组织模板资源"
+    StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!--  通过引用不同的ButtonStyles，实现更换主题  -->
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Brushes.xaml" />
+                <ResourceDictionary Source="ButtonStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

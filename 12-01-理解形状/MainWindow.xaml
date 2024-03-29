@@ -1,0 +1,190 @@
+﻿<Window
+    x:Class="_12_01_理解形状.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:_12_01_理解形状"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <!--
+        形状Shape，不是控件
+        SnapsToDevicePixels="True"：像素对齐，消除边缘色，去模糊
+    -->
+    <Grid>
+
+        <TabControl Margin="10">
+            <TabItem Header="椭圆与矩形">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Margin="10">
+                            <!--  椭圆  -->
+                            <Ellipse
+                                Width="100"
+                                Height="50"
+                                Fill="LightBlue"
+                                Stroke="Red"
+                                StrokeThickness="2" />
+                            <!--
+                                矩形
+                                RadiusX="10" RadiusY="10",实现圆角，必须XY都设置，不如Border
+                            -->
+                            <Rectangle
+                                Width="100"
+                                Height="50"
+                                Margin="10"
+                                Fill="LightBlue"
+                                RadiusX="10"
+                                RadiusY="10"
+                                Stroke="Red"
+                                StrokeThickness="2" />
+                        </StackPanel>
+
+                        <!--  不同的填充方式  -->
+                        <Ellipse
+                            Grid.Column="1"
+                            Fill="LightBlue"
+                            Stretch="Fill"
+                            Stroke="Red"
+                            StrokeThickness="2" />
+                        <!--  Uniform：按照容器最小边缘填充  -->
+                        <Ellipse
+                            Grid.Column="2"
+                            Fill="LightBlue"
+                            Stretch="Uniform"
+                            Stroke="Red"
+                            StrokeThickness="2" />
+                        <!--  UniformToFill：按照容器最大边缘填充，多余的部分会被裁切  -->
+                        <Ellipse
+                            Grid.Column="3"
+                            Fill="LightBlue"
+                            Stretch="UniformToFill"
+                            Stroke="Red"
+                            StrokeThickness="3" />
+                        <Ellipse
+                            Grid.Column="4"
+                            Fill="LightBlue"
+                            Stretch="None"
+                            Stroke="Red"
+                            StrokeThickness="3" />
+                    </Grid>
+                    <!--
+                        Viewbox：可使其中的元素大小跟随窗口改变
+                        ，但会失真，一般里面放Canvas，Canvas里放Shape
+                    -->
+                    <Viewbox Grid.Row="1" HorizontalAlignment="Left">
+                        <Canvas Width="1106" Height="500">
+                            <Ellipse
+                                Canvas.Left="300"
+                                Canvas.Top="300"
+                                Width="200"
+                                Height="100"
+                                Fill="LightBlue"
+                                Stroke="Red"
+                                StrokeThickness="2" />
+                            <Rectangle
+                                Width="100"
+                                Height="50"
+                                Margin="10"
+                                Fill="LightBlue"
+                                RadiusX="10"
+                                RadiusY="10"
+                                Stroke="Red"
+                                StrokeThickness="2" />
+                        </Canvas>
+                    </Viewbox>
+                </Grid>
+            </TabItem>
+            <!--
+                X1="10" Y1="10" X2="100" Y2="100"
+                起始坐标与结束坐标
+                Width="200" Height="200" 决定Line容器的大小，与直线长度无关
+            -->
+            <TabItem Header="直线">
+                <Canvas>
+                    <Line
+                        Canvas.Left="50"
+                        Canvas.Top="50"
+                        Width="200"
+                        Height="200"
+                        Stroke="Red"
+                        StrokeEndLineCap="Triangle"
+                        StrokeStartLineCap="Round"
+                        StrokeThickness="3"
+                        X1="10"
+                        X2="100"
+                        Y1="10"
+                        Y2="100" />
+                </Canvas>
+            </TabItem>
+
+            <!--  Points:直线起始结尾的点，两两一组  -->
+            <TabItem Header="折线">
+                <Polyline
+                    Fill="Red"
+                    Points="5,100 15,200 30,140 89,120"
+                    Stroke="Blue"
+                    StrokeEndLineCap="Triangle"
+                    StrokeLineJoin="Round"
+                    StrokeStartLineCap="Round" />
+            </TabItem>
+            <!--  Polygon:首尾两个点会自动相连，形成一个封闭图形  -->
+            <TabItem Header="Polygon">
+                <StackPanel Orientation="Horizontal">
+                    <Polygon
+                        Fill="Red"
+                        Points="5,100 15,200 30,140 89,40"
+                        Stroke="Blue" />
+                    <Polygon
+                        Fill="Red"
+                        FillRule="Nonzero"
+                        Points="15,200 68,70 110,200 0,125 135,125"
+                        Stroke="Blue" />
+                </StackPanel>
+
+            </TabItem>
+            <TabItem Header="点划线">
+                <Canvas>
+                    <!--
+                        StrokeDashArray="1 2 3"：表示实线占一份，空白占两份，实线占三分
+                        下一次循环时则是空白占一份，实现占两份，空白占三份
+                        StrokeDashCap：线段的头尾样式
+                    -->
+                    <Line
+                        Canvas.Left="50"
+                        Canvas.Top="50"
+                        Width="200"
+                        Height="200"
+                        SnapsToDevicePixels="True"
+                        Stroke="Red"
+                        StrokeDashArray="1 2 3"
+                        StrokeDashCap="Triangle"
+                        StrokeDashOffset="1"
+                        StrokeEndLineCap="Triangle"
+                        StrokeStartLineCap="Round"
+                        StrokeThickness="3"
+                        X1="10"
+                        X2="100"
+                        Y1="10"
+                        Y2="150" />
+                </Canvas>
+            </TabItem>
+        </TabControl>
+
+
+    </Grid>
+
+</Window>

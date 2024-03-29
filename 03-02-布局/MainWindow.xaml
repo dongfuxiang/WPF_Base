@@ -1,0 +1,36 @@
+﻿<Window
+    x:Class="_03_02_布局.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:_03_02_布局"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <!--
+        布局 Panel可以包含多个元素
+        ··HorizontalAlignment和VerticalAlignment决定此元素位于父元素容器的位置，HorizontalAlignment="Stretch"整个填充
+        ··Margin：定义左右边距的距离
+        ··Padding：容器内部的元素的内边距
+        ··StackPanel
+        ··Border:边框， 不是Panel，只能放一个元素
+    -->
+    <Border
+        HorizontalAlignment="Center"
+        BorderBrush="Red"
+        BorderThickness="10">
+        <StackPanel
+            MinWidth="200"
+            MaxWidth="500"
+            Margin="10"
+            HorizontalAlignment="Left"
+            Orientation="Vertical">
+            <Label>This is a Label</Label>
+            <Button HorizontalAlignment="Left">Button A</Button>
+            <Button HorizontalAlignment="Right">Button B</Button>
+            <Button>Button C</Button>
+        </StackPanel>
+    </Border>
+</Window>

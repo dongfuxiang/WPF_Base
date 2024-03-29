@@ -1,0 +1,29 @@
+﻿<Window
+    x:Class="_08_01_将元素绑定在一起.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:_08_01_将元素绑定在一起"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Grid>
+        <StackPanel Margin="10" Orientation="Vertical">
+            <Slider
+                x:Name="slider"
+                Margin="10"
+                Maximum="64"
+                Minimum="0"
+                TickPlacement="BottomRight" />
+            <!--  Delay:目标改变时，源改变的延时  -->
+            <TextBox
+                x:Name="tbInfo"
+                Margin="10"
+                FontSize="{Binding ElementName=slider, Path=Value}"
+                Text="{Binding ElementName=slider, Path=Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Delay=1000}" />
+            <TextBlock x:Name="textInfo" Margin="10" Text="This is Text"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,38 @@
+﻿<Window
+    x:Class="_11_03_行为.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:local="clr-namespace:_11_03_行为"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Grid>
+        <Canvas>
+            <!--  自定义事件实现控件拖动  -->
+            <Label
+                Canvas.Left="20"
+                Canvas.Top="20"
+                Background="AliceBlue"
+                Content="Move the Label"
+                MouseLeftButtonDown="Label_MouseLeftButtonDown"
+                MouseLeftButtonUp="Label_MouseLeftButtonUp"
+                MouseMove="Label_MouseMove" />
+            <!--  引用第三方库实现拖动  -->
+            <Label
+                Canvas.Left="200"
+                Canvas.Top="20"
+                Background="AliceBlue"
+                Content="Move the Label">
+                <!--  第三方附加属性  -->
+                <i:Interaction.Behaviors>
+                    <!--  自定义类  -->
+                    <local:DragInCanvasBehavior />
+                </i:Interaction.Behaviors>
+            </Label>
+        </Canvas>
+    </Grid>
+</Window>

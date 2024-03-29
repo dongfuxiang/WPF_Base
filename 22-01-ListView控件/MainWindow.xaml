@@ -1,0 +1,38 @@
+﻿<Window x:Class="_22_01_ListView控件.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:_22_01_ListView控件"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="MainWindow"
+        Width="800"
+        Height="450"
+        Loaded="Window_Loaded"
+        mc:Ignorable="d">
+    <Grid Margin="10">
+        <!--  ListView是ListBox的拓展  -->
+        <ListView x:Name="LvPersons">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <!--  //这一列绑定什么内容  -->
+                        <GridViewColumn Header="Id"
+                                        DisplayMemberBinding="{Binding Id}" />
+                        <!--使用数据模板-->
+                        <GridViewColumn Header="Name">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox Text="{Binding Name}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Age"
+                                        DisplayMemberBinding="{Binding Age}" />
+                        <GridViewColumn Header="Garder"
+                                        DisplayMemberBinding="{Binding Garder}" />
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

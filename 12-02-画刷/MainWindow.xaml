@@ -1,0 +1,98 @@
+﻿<Window
+    x:Class="_12_02_画刷.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:_12_02_画刷"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="400"
+    Height="850"
+    mc:Ignorable="d">
+    <Grid>
+        <StackPanel Margin="10">
+            <!--
+                SolidColorBrush:单一连续画刷
+                Rectangle：属性赋值方式全部写出来
+            -->
+            <Rectangle Height="50">
+                <Rectangle.Fill>
+                    <SolidColorBrush Color="LightBlue" />
+                </Rectangle.Fill>
+                <Rectangle.Stroke>
+                    <SolidColorBrush Color="Red" />
+                </Rectangle.Stroke>
+                <Rectangle.Margin>
+                    <Thickness
+                        Bottom="5"
+                        Left="5"
+                        Right="5"
+                        Top="5" />
+                </Rectangle.Margin>
+            </Rectangle>
+
+            <!--
+                LinearGradientBrush：线性渐变颜色
+                默认从左上角（0，0）渐变到右下角（1，1）（0-1），Offset可设置渐变从哪里开始或哪里结束
+                StartPoint：渐变开始点位
+            -->
+            <Rectangle Height="200" Margin="5">
+                <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <GradientStop Offset="0" Color="Red" />
+                        <GradientStop Offset="0.5" Color="Yellow" />
+                        <GradientStop Offset="1" Color="Green" />
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+
+            <!--
+                RadialGradientBrush：以中心向周围发散渐变
+                Center：渐变中心，默认为0.5 ，0.5
+                RadiusX：渐变范围，默认值为0.5
+            -->
+            <Rectangle Height="200" Margin="5">
+                <Rectangle.Fill>
+                    <RadialGradientBrush Center="0.5,0.7" RadiusX="0.5" RadiusY="0.5">
+                        <GradientStop Offset="0" Color="Red" />
+                        <GradientStop Offset="0.5" Color="Yellow" />
+                        <GradientStop Offset="1" Color="Green" />
+
+                    </RadialGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <!--
+                ImageBrush：使用图片来填充区域
+                
+                TileMode：平铺模式，Tile全部平铺，FlipX镜像平铺
+                ViewboxUnits：平铺方式，RelativeToBoundingBox相对方式，Absolute绝对方式
+                ViewboxUnits平铺模式要配合Viewport使用
+            -->
+            <Rectangle Height="200" Margin="5">
+                <Rectangle.Fill>
+                    <ImageBrush
+                        ImageSource="1.jpg"
+                        Stretch="Uniform"
+                        TileMode="Tile"
+                        ViewboxUnits="RelativeToBoundingBox"
+                        Viewport="0,0 0.25,0.25" />
+                </Rectangle.Fill>
+            </Rectangle>
+
+            <Button
+                x:Name="btnA"
+                Width="100"
+                Height="30"
+                Margin="5"
+                Content="ButtonA" />
+            <Rectangle Height="30" Margin="5">
+                <Rectangle.Fill>
+                    <!--
+                        VisualBrush：相当于绑定对象的倒影，只是一幅画
+                    -->
+                    <VisualBrush Stretch="UniformToFill" Visual="{Binding ElementName=btnA}" />
+                </Rectangle.Fill>
+            </Rectangle>
+        </StackPanel>
+    </Grid>
+</Window>

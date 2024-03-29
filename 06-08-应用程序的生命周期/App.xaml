@@ -1,0 +1,16 @@
+﻿<Application
+    x:Class="_06_08_应用程序的生命周期.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:_06_08_应用程序的生命周期"
+    ShutdownMode="OnExplicitShutdown"
+    Startup="Application_Startup"
+    StartupUri="MainWindow.xaml">
+    <!--
+        ShutdownMode="OnLastWindowClose":最后一个窗口关闭后应用程序关闭
+        ShutdownMode="OnMainWindowClose"：主窗体关闭后关闭应用程序
+        ShutdownMode="OnExplicitShutdown"：只能调用Shutdown方法关闭应用程序
+        Startup：应用程序一创建就会触发，早于任何窗口的初始化
+    -->
+    <Application.Resources />
+</Application>

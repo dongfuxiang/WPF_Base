@@ -1,0 +1,85 @@
+﻿<Window x:Class="_21_01_View对象.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:_21_01_View对象"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="MainWindow"
+        Width="600"
+        Height="450"
+        mc:Ignorable="d" Loaded="Window_Loaded">
+    <!--  当数据源向目标（控件）转化时，是先创建一个View对象再填到控件里  -->
+
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontFamily" Value="宋体" />
+            <Setter Property="Margin" Value="10,0,10,0" />
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="10,0,10,0" />
+        </Style>
+    </Window.Resources>
+
+    <Border Margin="10" Background="LightGray">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition />
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0"
+                       Grid.Column="0"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Text="Model Number：" />
+            <TextBlock Grid.Row="1"
+                       Grid.Column="0"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Text="Model Name：" />
+            <TextBlock Grid.Row="2"
+                       Grid.Column="0"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Text="Unit Cost：" />
+            <TextBlock Grid.Row="3"
+                       Grid.Column="0"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Text="Description：" />
+
+            <TextBox Grid.Row="0"
+                     Text="{Binding Id}"
+                     Grid.Column="1"
+                     Height="30" />
+            <TextBox Grid.Row="1"
+                     Text="{Binding Name}"
+                     Grid.Column="1"
+                     Height="30" />
+            <TextBox Grid.Row="2"
+                     Text="{Binding Price}"
+                     Grid.Column="1"
+                     Height="30" />
+            <TextBox Grid.Row="4"
+                     Text="{Binding Description}"
+                     Grid.ColumnSpan="2"
+                     Height="auto" />
+            <StackPanel Grid.Row="5" Margin="10 5 0 5" Grid.ColumnSpan="2" Orientation="Horizontal">
+                <Button Content="&lt;"  x:Name="BtnPre" Click="BtnPre_Click"/>
+                <TextBlock x:Name="TbInfo" Text="Recod" FontWeight="Medium"  FontSize="15" VerticalAlignment="Center"/>
+                <Button Content="&gt;" x:Name="BtnNext" Click="BtnNext_Click"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+
+</Window>

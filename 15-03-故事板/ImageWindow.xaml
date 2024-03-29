@@ -1,0 +1,128 @@
+﻿<Window
+    x:Class="_15_03_故事板.ImageWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:_15_03_故事板"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="ImageWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <Style TargetType="Border">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="BorderBrush" Value="LightGray" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="CornerRadius" Value="5" />
+        </Style>
+    </Window.Resources>
+    <Window.Triggers>
+        <!--  动画开始  -->
+        <EventTrigger RoutedEvent="Button.Click" SourceName="cmdStart">
+            <EventTrigger.Actions>
+                <!--  BeginStoryboard:是一个动作  -->
+                <BeginStoryboard x:Name="fadeStoryBordBegin">
+                    <Storyboard>
+                        <DoubleAnimation
+                            Storyboard.TargetName="img"
+                            Storyboard.TargetProperty="Opacity"
+                            From="1"
+                            To="0"
+                            Duration="0:0:10" />
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger.Actions>
+        </EventTrigger>
+        <!--  暂停动画  -->
+        <EventTrigger RoutedEvent="Button.Click" SourceName="cmdPause">
+            <PauseStoryboard BeginStoryboardName="fadeStoryBordBegin" />
+        </EventTrigger>
+        <!--  恢复暂停的动画  -->
+        <EventTrigger RoutedEvent="Button.Click" SourceName="cmdResume">
+            <ResumeStoryboard BeginStoryboardName="fadeStoryBordBegin" />
+        </EventTrigger>
+        <!--  停止播放动画  -->
+        <EventTrigger RoutedEvent="Button.Click" SourceName="cmdStop">
+            <StopStoryboard BeginStoryboardName="fadeStoryBordBegin" />
+        </EventTrigger>
+        <!--  跳到动画时间线中的特定位置  -->
+        <EventTrigger RoutedEvent="Button.Click" SourceName="cmdMiddle">
+            <SeekStoryboard BeginStoryboardName="fadeStoryBordBegin" Offset="0:0:8" />
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid>
+        <DockPanel>
+            <Border DockPanel.Dock="Bottom">
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <Button
+                        x:Name="cmdStart"
+                        Margin="10"
+                        Padding="10,5,10,5"
+                        Content="Start"
+                        FontSize="20">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5" />
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button
+                        x:Name="cmdPause"
+                        Margin="10"
+                        Padding="10,5,10,5"
+                        Content="Pause"
+                        FontSize="20">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5" />
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button
+                        x:Name="cmdResume"
+                        Margin="10"
+                        Padding="10,5,10,5"
+                        Content="Resume"
+                        FontSize="20">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5" />
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button
+                        x:Name="cmdStop"
+                        Margin="10"
+                        Padding="10,5,10,5"
+                        Content="Stop"
+                        FontSize="20">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5" />
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button
+                        x:Name="cmdMiddle"
+                        Margin="10"
+                        Padding="10,5,10,5"
+                        Content="Move To Middle"
+                        FontSize="20">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5" />
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </StackPanel>
+            </Border>
+            <Border>
+                <Image x:Name="img" Source="1.jpg" />
+            </Border>
+
+
+        </DockPanel>
+    </Grid>
+</Window>

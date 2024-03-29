@@ -1,0 +1,25 @@
+﻿<Window
+    x:Class="_18_02_构建基本的用户控件_02.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:_18_02_构建基本的用户控件_02"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:uc="clr-namespace:_18_01_CustomSontrolLib.Controls;assembly=18-01-CustomSontrolLib"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+
+    <Grid>
+        <StackPanel>
+            <uc:ColorPicker 
+                Width="400"
+                Height="100"
+                ColorChanged="ColorPicker_ColorChanged"
+                Red="250" />
+            <TextBlock x:Name="tbColor" HorizontalAlignment="Center" />
+        </StackPanel>
+
+    </Grid>
+</Window>

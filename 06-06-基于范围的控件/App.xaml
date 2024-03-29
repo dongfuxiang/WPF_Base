@@ -1,0 +1,8 @@
+﻿<Application
+    x:Class="_06_06_基于范围的控件.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:_06_06_基于范围的控件"
+    StartupUri="MainWindow.xaml">
+    <Application.Resources />
+</Application>

@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "18-03-创建无外观的控件-01/1.0.0": {
+        "dependencies": {
+          "18-03-CustomControlLib": "1.0.0"
+        },
+        "runtime": {
+          "18-03-创建无外观的控件-01.dll": {}
+        }
+      },
+      "18-03-CustomControlLib/1.0.0": {
+        "runtime": {
+          "18-03-CustomControlLib.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "18-03-创建无外观的控件-01/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "18-03-CustomControlLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

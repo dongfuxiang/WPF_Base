@@ -1,0 +1,125 @@
+﻿<Window
+    x:Class="_12_04_透明.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:_12_04_透明"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="669"
+    mc:Ignorable="d">
+    <!--
+        ··元素的Opacity属性可设置透明度，（0-1）
+        ··透明掩码OpacityMask，可以实现指定区域透明,一般与LinearGradientBrush渐变画刷一起使用，可以实现倒影效果
+        注意：部分透明色可能会影响到一些Web控件
+    -->
+    <Grid Margin="0,0,0,173">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="350" />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Margin="10">
+            <!--  1.设置元素的Opacity属性  -->
+            <Border Height="100" Margin="5">
+                <Border.Background>
+                    <!--
+                        使用ImageBrush将Background设置为图片
+                        ··此处设置图片画刷半透明
+                    -->
+                    <ImageBrush
+                        ImageSource="1.jpg"
+                        Opacity="0.5"
+                        Stretch="UniformToFill" />
+                </Border.Background>
+                <!--
+                    ··设置按钮的为半透明，字也半透明了
+                -->
+                <Button
+                    Width="200"
+                    Height="40"
+                    Background="Red"
+                    Content="Button A"
+                    Opacity="0.5" />
+
+            </Border>
+            <!--  2.设置画刷的Opacity属性  -->
+            <Border Height="100" Margin="5">
+                <Border.Background>
+
+                    <ImageBrush
+                        ImageSource="1.jpg"
+                        Opacity="0.5"
+                        Stretch="UniformToFill" />
+                </Border.Background>
+
+                <!--  单独设置背景半透明，字正常显示  -->
+                <Button
+                    Width="200"
+                    Height="40"
+                    Content="Button A">
+                    <Button.Background>
+                        <SolidColorBrush Opacity="0.5" Color="Red" />
+                    </Button.Background>
+                </Button>
+
+            </Border>
+
+            <!--  使用具有透明Apha值的颜色  -->
+            <Border Height="100" Margin="5">
+                <Border.Background>
+
+                    <ImageBrush
+                        ImageSource="1.jpg"
+                        Opacity="0.5"
+                        Stretch="UniformToFill" />
+                </Border.Background>
+                <Button
+                    Width="200"
+                    Height="40"
+                    Content="Button A">
+                    <Button.Background>
+                        <SolidColorBrush Color="#af00ff00" />
+                    </Button.Background>
+                </Button>
+
+            </Border>
+
+
+
+
+
+        </StackPanel>
+
+        <TextBox
+            x:Name="text"
+            Grid.Row="1"
+            Height="50"
+            Margin="5"
+            VerticalAlignment="Bottom"
+            VerticalContentAlignment="Center"
+            FontSize="30"
+            FontWeight="Heavy"
+            Text="This is a example" />
+        <!--  此处ScaleY是按照X轴拉伸，所以RenderTransformOrigin与X值无关  -->
+        <Rectangle
+            Grid.Row="2"
+            Margin="5"
+            RenderTransformOrigin="0 0.5">
+            <Rectangle.Fill>
+                <VisualBrush Visual="{Binding ElementName=text}" />
+            </Rectangle.Fill>
+            <Rectangle.RenderTransform>
+                <ScaleTransform ScaleY="-1" />
+            </Rectangle.RenderTransform>
+            <!--  设置透明掩码  -->
+            <Rectangle.OpacityMask>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Offset="0.4" Color="Transparent" />
+                    <GradientStop Offset="1" Color="#ffffff" />
+                </LinearGradientBrush>
+            </Rectangle.OpacityMask>
+        </Rectangle>
+    </Grid>
+</Window>

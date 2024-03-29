@@ -1,0 +1,45 @@
+﻿<Window
+    x:Class="_06_05_列表控件.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:_06_05_列表控件"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+
+    <!--
+        ListBox，ComBox
+        ComBox相当于展开来的ListBox，两者大多都差不多
+        ··DropDownOpened：ComBox打开时的事件，用于更新等
+    -->
+    <Grid Margin="10">
+        <StackPanel>
+            <Expander>
+                <ListBox x:Name="listBox" SelectionChanged="ListBox_SelectionChanged">
+                    <ListBoxItem>
+                        <TextBlock Text="1111111111111" />
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        <CheckBox Content="2222222222222" />
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        <Button Content="3333333333" />
+                    </ListBoxItem>
+                    <CheckBox Content="4444444444" />
+                </ListBox>
+            </Expander>
+            <ComboBox DropDownOpened="ComboBox_DropDownOpened">
+                <ComboBoxItem>
+                    <StackPanel>
+                        <TextBlock Text="This is Image" />
+                        <Image Height="50" Source="1.jpg" />
+                    </StackPanel>
+                </ComboBoxItem>
+                <TextBlock Text="456" />
+            </ComboBox>
+        </StackPanel>
+    </Grid>
+</Window>
